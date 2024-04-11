@@ -100,8 +100,8 @@ public class RegisterActivity extends AppCompatActivity {
                     Toast.makeText(RegisterActivity.this, "Fill in the email field.", Toast.LENGTH_SHORT).show();
                 } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                     Toast.makeText(RegisterActivity.this, "Enter the valid email.", Toast.LENGTH_SHORT).show();
-                    //} else if (!email.endsWith("@" + desiredEmailExtension1) && !email.endsWith("@" + desiredEmailExtension2)) {
-                    //    Toast.makeText(RegisterActivity.this, "Email must have one of the desired extensions: " + desiredEmailExtension1 + " or " + desiredEmailExtension2, Toast.LENGTH_SHORT).show();
+                } else if (!email.endsWith("@" + desiredEmailExtension1) && !email.endsWith("@" + desiredEmailExtension2)) {
+                    Toast.makeText(RegisterActivity.this, "Email must have one of the desired extensions: " + desiredEmailExtension1 + " or " + desiredEmailExtension2, Toast.LENGTH_SHORT).show();
                 } else if (TextUtils.isEmpty(password)) {
                     Toast.makeText(RegisterActivity.this, "Fill in the password field.", Toast.LENGTH_SHORT).show();
                 } else if (password.length() < 6) {
