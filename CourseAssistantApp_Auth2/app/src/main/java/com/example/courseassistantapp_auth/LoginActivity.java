@@ -160,16 +160,27 @@ public class LoginActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {         // If login is successful, check if email is verified or user is admin
                     FirebaseUser firebaseUser = auth.getCurrentUser();
-                    if (firebaseUser.isEmailVerified() || firebaseUser.getUid().equals("es3cgqpFFKVZJlYcL9C8hYppGCF3") || firebaseUser.getUid().equals("0LM7fM1RWEfRILfr51RSutsdBCu2") || firebaseUser.getUid().equals("7rHkU05l7cQJhNAAwB2gGLMYfL62")) {
-                        Toast.makeText(LoginActivity.this, "Logged in successfully.", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LoginActivity.this, UserProfileActivity.class);
-                        startActivity(intent);
-                    } else {                           // If email is not verified, prompt user to verify and log out
-                        firebaseUser.sendEmailVerification();
-                        auth.signOut();
-                        showAlertDialog();
 
-                    }
+
+
+//                    if (firebaseUser.isEmailVerified() || firebaseUser.getUid().equals("es3cgqpFFKVZJlYcL9C8hYppGCF3") || firebaseUser.getUid().equals("0LM7fM1RWEfRILfr51RSutsdBCu2") || firebaseUser.getUid().equals("7rHkU05l7cQJhNAAwB2gGLMYfL62")) {
+
+//
+//
+//                        Toast.makeText(LoginActivity.this, "Logged in successfully.", Toast.LENGTH_SHORT).show();
+//                        System.out.println(firebaseUser);
+//
+//                        Intent intent = new Intent(LoginActivity.this, UserProfileActivity.class);
+//                        startActivity(intent);
+//                    } else {                           // If email is not verified, prompt user to verify and log out
+//                        firebaseUser.sendEmailVerification();
+//                        auth.signOut();
+//                        showAlertDialog();
+//
+//                    }
+                    String userID = firebaseUser.getUid();
+                    System.out.println("id:" + userID);
+                    checkUserLevel(userID);
 
                 } else {
                     try {
@@ -211,4 +222,43 @@ public class LoginActivity extends AppCompatActivity {
         alertDialog.show();
 
     }
+
+
+    public void checkUserLevel(String userId) {
+
+
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("RegisteredUsers");
+
+        reference.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                UserDetails user = snapshot.getValue(UserDetails.class);
+
+                if (user != null) {
+
+                    String userLevel = user.getLevel();
+
+                    if (userLevel.equals("Student")) {
+
+                        Intent intent = new Intent(LoginActivity.this, StudentCourseActivity.class);
+                        startActivity(intent);
+                    }
+                    else if (userLevel.equals("Instructor")) {
+
+                        Intent intent = new Intent(LoginActivity.this, InstructorCourseActivity.class);
+                        startActivity(intent);
+                    }else {
+                        Intent intent = new Intent(LoginActivity.this, AdminReportsActivity.class);
+                        startActivity(intent);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e(TAG, "Database error: " + databaseError.getMessage());
+            }
+        });
+    }
+
 }

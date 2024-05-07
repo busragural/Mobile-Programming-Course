@@ -7,7 +7,8 @@
         android:required="false" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +20,40 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light"
         tools:targetApi="31">
+        <activity
+            android:name=".AdminReportsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PostsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InstructorReportsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ForumActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StudentCourseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FilterCourseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SeeStudentsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditCourseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CourseDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CreateCourseActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".InstructorCourseActivity"
+            android:exported="false" />
         <activity
             android:name=".EditProfileActivity"
             android:exported="false" />

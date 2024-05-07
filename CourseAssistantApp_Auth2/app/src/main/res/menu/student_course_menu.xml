@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Refresh"
+        android:id="@+id/cm_refresh"
+        />
+    <item android:title="Report"
+    android:id="@+id/cm_forum"
+    />
+    <item android:title="Posts"
+        android:id="@+id/cm_post"
+        />
+
+    <item android:title="Profile"
+        android:id="@+id/cm_profile"
+        />
+</menu>

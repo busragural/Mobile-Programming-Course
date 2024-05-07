@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">CourseAssistantApp_Auth</string>
     <string name="register_title">Register</string>
+    <string name="state_prompt">Select a State</string>
+    <string name="select_topic">Select Topic</string>
 </resources>

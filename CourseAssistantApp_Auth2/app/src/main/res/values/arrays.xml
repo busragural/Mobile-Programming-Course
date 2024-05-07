@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="course_states_array">
+        <item>All</item>
+        <item>Attending</item>
+        <item>Complete</item>
+    </string-array>
+
+    <string-array name="forum_topics">
+        <item>App related misconduct</item>
+        <item> Course related misconduct/misbehavior/cheating</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,53 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".StudentCourseActivity"
+    android:id="@+id/main"
+    >
+
+    <Spinner
+        android:id="@+id/state_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:prompt="@string/state_prompt"
+        android:layout_marginTop="26dp"
+        android:background="@drawable/border"
+        android:padding="8dp"
+        />
+
+    <EditText
+        android:id="@+id/start_date_edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Select Start Date"
+        android:focusable="false"
+        android:background="@drawable/border"
+        android:layout_marginTop="20dp"
+        android:padding="8dp"
+        />
+
+
+    <Button
+        android:id="@+id/apply_filter_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Apply Filter"
+        android:backgroundTint="@color/blue"
+        android:textSize="18sp"
+        app:cornerRadius="10dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/courses_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        />
+
+</LinearLayout>
